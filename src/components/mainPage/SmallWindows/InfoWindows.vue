@@ -8,10 +8,10 @@ const isEditing = ref(false)
 const formData = ref({
   photo: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
   username: 'kooriookami',
-  telephone: '18100000000',
-  place: 'Suzhou',
+  userID: '18100000000',
+  Email:'',
   remarks: 'School',
-  address: 'No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province'
+  profile: 'No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province'
 })
 
 const handleEdit = () => {
@@ -57,12 +57,12 @@ const saveDataToBackend = async (data) => {
         />
       </el-descriptions-item>
       <el-descriptions-item label="Username">{{ formData.username }}</el-descriptions-item>
-      <el-descriptions-item label="Telephone">{{ formData.telephone }}</el-descriptions-item>
-      <el-descriptions-item label="Place">{{ formData.place }}</el-descriptions-item>
+      <el-descriptions-item label="UserID">{{ formData.userID }}</el-descriptions-item>
+      <el-descriptions-item label="Email">{{ formData.Email }}</el-descriptions-item>
       <el-descriptions-item label="Remarks">
         <el-tag size="small">{{ formData.remarks }}</el-tag>
       </el-descriptions-item>
-      <el-descriptions-item label="Address">{{ formData.address }}</el-descriptions-item>
+      <el-descriptions-item label="Profile">{{ formData.profile }}</el-descriptions-item>
     </el-descriptions>
 
     <el-form v-else :model="formData" label-width="100px" style="margin-top: 20px;">
@@ -81,16 +81,16 @@ const saveDataToBackend = async (data) => {
         <el-input v-model="formData.username" />
       </el-form-item>
       <el-form-item label="Telephone">
-        <el-input v-model="formData.telephone" />
+        <el-input v-model="formData.userID" />
       </el-form-item>
       <el-form-item label="Place">
-        <el-input v-model="formData.place" />
+        <el-input v-model="formData.Email" />
       </el-form-item>
       <el-form-item label="Remarks">
         <el-input v-model="formData.remarks" />
       </el-form-item>
       <el-form-item label="Address">
-        <el-input v-model="formData.address" type="textarea" />
+        <el-input v-model="formData.profile" type="textarea" />
       </el-form-item>
     </el-form>
 

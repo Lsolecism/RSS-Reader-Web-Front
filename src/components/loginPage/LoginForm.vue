@@ -25,6 +25,7 @@
 <script lang="ts" setup>
 import {reactive} from 'vue'
 import {ElLoading, ElNotification} from "element-plus";
+import {useUserStore} from '@/stores/useUserStore'
 const emit = defineEmits(['focus', 'blur'])
 const ruleForm = reactive({
   pass: '',
@@ -40,13 +41,15 @@ function submitLoginForm()
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ action: 'loginPage', userEmail: ruleForm.email, password: ruleForm.pass })
+    body: JSON.stringify({ action: 'login', userEmail: ruleForm.email, password: ruleForm.pass })
   })
       .then(response => response.json())
       .then(data => {
         setTimeout(() => {
           elLoading.close(); // 关闭加载动画
           if (data.success) {
+            useUserStore().setUserInfo({avatar: data.avatar, userId: data.userID, username:data.userName})
+            useUserStore().setRssSource(data.rssSource)
             ElNotification({
               title: 'Success',
               message: '登录成功!',

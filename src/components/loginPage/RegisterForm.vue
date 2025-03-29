@@ -38,6 +38,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import {ElLoading, ElNotification} from "element-plus";
+import {useUserStore} from '@/stores/useUserStore'
 
 const emit = defineEmits(['focus','blur'])
 const ruleForm = reactive({
@@ -60,6 +61,8 @@ function submitRegisterForm()  {
         setTimeout(() => {
           elLoading.close(); // 关闭加载动画
           if (data.success) {
+            useUserStore().setUserInfo({avatar: data.avatar, userId: data.userID, username:data.userID})
+            useUserStore().setRssSource('')
             ElNotification({
               title: 'Success',
               message: '注册成功!',

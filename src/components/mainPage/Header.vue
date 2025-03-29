@@ -6,7 +6,7 @@ import EditWindow from "@/components/mainPage/SmallWindows/EditWindow.vue";
 import InfoWindows from "@/components/mainPage/SmallWindows/InfoWindows.vue";
 import ExitWindow from "@/components/mainPage/SmallWindows/ExitWindow.vue";
 import SettingWindow from "@/components/mainPage/SmallWindows/SettingWindow.vue";
-import HelpView from "@/components/mainPage/SmallWindows/HelpView.vue";
+import HelpWindow from "@/components/mainPage/SmallWindows/HelpWindow.vue";
 
 const showRatingWindow = ref(false)
 const showEditWindow = ref(false)
@@ -52,7 +52,7 @@ const input = ref('')
   <InfoWindows v-model="showInfoWindow" />
   <ExitWindow v-model="showExitWindow"/>
   <SettingWindow v-model="showSettingWindow"/>
-  <HelpView v-model="showHelpWindow" />
+  <HelpWindow v-model="showHelpWindow" />
 </template>
 
 <style scoped>.example-showcase .el-dropdown-link {
